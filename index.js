@@ -12,5 +12,17 @@ const tutorials = [
 ];
 
 const titleCased = () => {
-  return tutorials
-}
+  const caseSensitiveWords = ['NaN', 'stopPropagation', 'preventDefault?', 'JSONP?', 'OO', 'API'];
+
+  return tutorials.map(tutorial => {
+    return tutorial.split(" ").map(word => {
+      if (caseSensitiveWords.includes(word)) {
+        return word.charAt(0).toUpperCase() + word.slice(1); 
+      }
+      return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase(); 
+    }).join(" ");
+  });
+};
+
+
+
